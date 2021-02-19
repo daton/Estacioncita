@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var url="https://api.weatherlink.com/v1/NoaaExt.json?user=001D0A0040AE&pass=Campitos1973&apiToken=8DA86B5995E94BA3BD3EBD811086F906"
+        var url="https://benesuela.herokuapp.com/api/usuario"
 
         val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener { response ->
 
    //La temperatura
-           texto.text=     response.get("temp_c").toString()
+           texto.text=     response.get("nombre").toString()
             },
             Response.ErrorListener { error ->
                 // TODO: Handle error
