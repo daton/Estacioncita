@@ -25,11 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         var url="https://benesuela.herokuapp.com/api/usuario"
 
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, url, null,
+       val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, url, objetojson,
             Response.Listener { response ->
 
-   //La temperatura
-           texto.text=     response.get("nombre").toString()
+   //En este cuarto parametro del objeto JsonObjectRequest se recibe la NOTIFICACION  de la clase Estatus
+           texto.text=     response.get("mensaje").toString()
             },
             Response.ErrorListener { error ->
                 // TODO: Handle error
@@ -37,8 +37,13 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
+  
+
+
+
         // Acceso al request por medio de una clase Singleton
         MiSingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
+
 
 
     }
