@@ -24,8 +24,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var url="https://benesuela.herokuapp.com/api/usuario"
+         var usuariojson=JSONObject()
+             usuariojson.put("email", usuario.email)
+             usuariojson.put("nickname", usuario.nickname)
+             usuariojson.put("nombre",usuario.nombre)
 
-       val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, url, objetojson,
+       val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, url, usuariojson,
             Response.Listener { response ->
 
    //En este cuarto parametro del objeto JsonObjectRequest se recibe la NOTIFICACION  de la clase Estatus
